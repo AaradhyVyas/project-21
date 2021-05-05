@@ -25,7 +25,7 @@ function setup(){
     
     ball = createSprite(random(20,750),100, 40,40);
     ball.shapeColor = rgb(255,255,255);
-    ball.velocityY=-7;
+    ball.velocityY=2;
     ball.velocityX=-9;
 
 }
@@ -35,10 +35,12 @@ function draw() {
     edges=createEdgeSprites();
     ball.bounceOff(edges);
 
-    //write code to bounce off ball from the block1 
+    
     if(block1.isTouching(ball) && ball.bounceOff(block1)){
         ball.shapeColor = "pink";
         music.play();
+        ball.velocityY = -4;
+        ball.velocityX = -4;
     }
 
 
@@ -47,11 +49,13 @@ function draw() {
         ball.shapeColor = "orange";
         ball.velocityX = 0;
         ball.velocityY = 0;
-        //write code to stop music
     }
 
     if(block3.isTouching(ball) && ball.bounceOff(block3)){
         ball.shapeColor = "green";
+        music.play();
+         ball.velocityY = 6;
+        ball.velocityY = -6;
         music.play();
     }
 
